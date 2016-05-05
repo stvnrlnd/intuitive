@@ -37,18 +37,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Intuitive</a>
+              <a class="navbar-brand" ui-sref="home">Intuitive</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plan Pricing <i class="fa fa-chevron-down"></i></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-chevron-down"></i></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
+                    <li><a ui-sref="plans">Plan Pricing</a></li>
                   </ul>
                 </li>
               </ul>
@@ -58,63 +54,7 @@
       </header>
     </div>
     <div class="">
-      <main class="container">
-        <section class="panel panel-default" ng-controller="planController">
-          <header class="panel-heading">
-            <form>
-              <div class="input-group">
-                <span class="input-group-addon">
-                  <i class="fa fa-search"></i>
-                </span>
-                <input ng-model="planSearch" type="text" class="form-control" placeholder="Search...">
-              </div>
-            </form>
-          </header>
-          <article class="panel-body">
-            <main ng-repeat="plan in plans | filter:planSearch">
-              <aside class="col-xs-3">
-                <h6 class="text-uppercase text-muted">More Information</h6>
-                <p>
-                  {{plan.enrollYear}}
-                </p>
-                <p>
-                  {{plan.description}}
-                </p>
-              </aside>
-              <aside class="col-xs-9">
-                <header class="page-header">
-                  <h1>{{plan.name}}</h1>
-                </header>
-                <table class="table table-bordered table-striped table-condensed table-hover">
-                  <thead>
-                    <tr>
-                      <th>Grade</th>
-                      <th>Age</th>
-                      <th>Matriculation Year</th>
-                      <th>Number of Payments</th>
-                      <th>Lump Sum</th>
-                      <th>Monthly</th>
-                      <th>55 Month</th>
-                      <th>Interest Rate</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr ng-repeat="price in plan.price | filter:planSearch">
-                      <th>{{price.grade}}</th>
-                      <th>{{price.age}}</th>
-                      <th>{{price.matriculation}}</th>
-                      <th>{{price.payments}}</th>
-                      <th>{{price.lump | currency}}</th>
-                      <th>{{price.monthly | currency}}</th>
-                      <th>{{price.fiftyFiveMonth | currency}}</th>
-                      <th>{{price.monthlyInterest}}</th>
-                    </tr>
-                  </tbody>
-                </table>
-              </aside>
-            </main>
-          </article>
-        </section>
+      <main class="container" ui-view>
       </main>
     </div>
     <div class="container">
@@ -124,10 +64,11 @@
       </footer>
     </div>
 
-    <script src="app/angular.min.js" charset="utf-8"></script>
-    <script src="app/core.js" charset="utf-8"></script>
+    <script src="app/angular.min.js"></script>
+    <script src="app/angular.ui-router.js"></script>
+    <script src="app/core.js"></script>
 
-    <script src="theme/scripts/jquery-1.12.3.min.js" charset="utf-8"></script>
-    <script src="theme/scripts/bootstrap.js" charset="utf-8"></script>
+    <script src="theme/scripts/jquery-1.12.3.min.js"></script>
+    <script src="theme/scripts/bootstrap.js"></script>
   </body>
 </html>

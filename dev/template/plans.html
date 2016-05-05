@@ -1,0 +1,56 @@
+<section class="panel panel-default">
+  <header class="panel-heading">
+    <form>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-search"></i>
+        </span>
+        <input ng-model="planSearch" type="text" class="form-control" placeholder="Search...">
+      </div>
+    </form>
+  </header>
+  <article class="panel-body">
+    <main ng-repeat="plan in plans | filter:planSearch">
+      <aside class="col-xs-3">
+        <h6 class="text-uppercase text-muted">More Information</h6>
+        <p>
+          {{plan.enrollYear}}
+        </p>
+        <p>
+          {{plan.description}}
+        </p>
+      </aside>
+      <aside class="col-xs-9">
+        <header class="page-header">
+          <h1>{{plan.name}}</h1>
+        </header>
+        <table class="table table-bordered table-striped table-condensed table-hover">
+          <thead>
+            <tr>
+              <th>Grade</th>
+              <th>Age</th>
+              <th>Matriculation Year</th>
+              <th>Number of Payments</th>
+              <th>Lump Sum</th>
+              <th>Monthly</th>
+              <th>55 Month</th>
+              <th>Interest Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="price in plan.price | filter:planSearch">
+              <th>{{price.grade}}</th>
+              <th>{{price.age}}</th>
+              <th>{{price.matric}}</th>
+              <th>{{price.payments}}</th>
+              <th>{{price.lump | currency}}</th>
+              <th>{{price.monthly | currency}}</th>
+              <th>{{price.fiftyFiveMonth | currency}}</th>
+              <th>{{price.monthlyInterest}}</th>
+            </tr>
+          </tbody>
+        </table>
+      </aside>
+    </main>
+  </article>
+</section>
