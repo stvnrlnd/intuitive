@@ -2,6 +2,7 @@
   'use strict';
   angular.module('intuitive', [])
     .controller('planController', function($scope, planService) {
+      $scope.planSearch = '';
       planService.getPlans(function(response) {
         $scope.plans = response.data;
         console.log(response.data);
