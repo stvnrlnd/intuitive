@@ -1,5 +1,8 @@
 <section class="panel panel-default">
   <header class="panel-heading">
+    <h3 class="panel-title">Plan Pricing</h3>
+  </header>
+  <article class="panel-body">
     <form>
       <div class="input-group">
         <span class="input-group-addon">
@@ -8,8 +11,7 @@
         <input ng-model="planSearch" type="text" class="form-control" placeholder="Search...">
       </div>
     </form>
-  </header>
-  <article class="panel-body">
+    <hr>
     <main ng-repeat="plan in plans | filter:planSearch">
       <aside class="col-xs-3">
         <h6 class="text-uppercase text-muted">More Information</h6>
