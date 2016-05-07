@@ -12,6 +12,11 @@
           url: '/plans',
           templateUrl: 'template/plans.html',
           controller: 'planController'
+        })
+        .state('directory', {
+          url: '/directory',
+          templateUrl: 'template/directory.html',
+          controller: 'directoryController'
         });
       $urlRouterProvider
         .otherwise('/');
@@ -26,10 +31,22 @@
         console.log(response.data);
       });
     })
+    .controller('directoryController', function($scope, directoryService) {
+      directoryService.getPeople(function(response) {
+        $scope.people = response.data;
+        console.log(response.data);
+      });
+    })
     .service('planService', function($http) {
       this.getPlans = function(callback) {
         $http.get('app/mock/plans.json')
           .then(callback);
       };
+    })
+    .service('directoryService', function($http){
+      this.getPeople = function(callback) {
+        $http.get('app/mock/people.json')
+          .then(callback);
+      }
     });
 })();

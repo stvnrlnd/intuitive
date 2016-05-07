@@ -1,0 +1,55 @@
+<section class="panel panel-default">
+  <header class="panel-heading">
+    <h3 class="panel-title">Directory</h3>
+  </header>
+  <article class="panel-body">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <form class="navbar-form navbar-right" role="search">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-search"></i>
+              </span>
+              <input ng-model="search.$" type="text" class="form-control" placeholder="Search...">
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <main class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr class="text-muted text-uppercase">
+            <td></td>
+            <td><small>Name</small></td>
+            <td><small>Schedule</small></td>
+            <td><small>Break</small></td>
+            <td><small>Lunch</small></td>
+            <td><small>Break</small></td>
+            <td><small>Contact</small></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="person in people | filter:search">
+            <td><img class="img-circle" style="height:65px" ng-src="{{person.image}}" alt="" /></td>
+            <td><h4>{{person.firstName}} {{person.lastName}} <br><small class="text-muted">{{person.username}}</small></h4></td>
+            <td>{{person.timeIn}} - {{person.timeOut}}</td>
+            <td>{{person.firstBreak}}</td>
+            <td>{{person.lunch}}</td>
+            <td>{{person.lastBreak}}</td>
+            <td><i class="fa fa-phone"></i> {{person.ext}} <br><i class="fa fa-envelope-o"></i> <a href="mailto:{{person.email}}">{{person.email}}</a> <br><i class="fa fa-commenting-o"></i> </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </article>
+</section>
