@@ -20,7 +20,7 @@
       $scope.name = "beautiful";
     })
     .controller('planController', function($scope, planService) {
-      $scope.planSearch = '';
+      $scope.search = '';
       planService.getPlans(function(response) {
         $scope.plans = response.data;
         console.log(response.data);
